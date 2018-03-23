@@ -2,12 +2,13 @@
 
 from flask import Blueprint, jsonify, request, abort, make_response
 import service.user_service as us
-
+from app import logger
 
 user_controller = Blueprint('user_controller', __name__)
 
 @user_controller.route('/', methods=['GET'])
 def getAllUsers():
+    logger.debug('find all users')
     users = list(map(lambda x: x.to_dict(), us.findAllUsers()))
     return jsonify(users)
 
