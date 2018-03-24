@@ -1,16 +1,16 @@
 # -*- coding: utf8 -*-
 
 from app import db
-from model.user import t_user
+from model.User import User
 from sqlalchemy.exc import DatabaseError
 from sqlalchemy import text
 from traceback import print_exc
 
 def findAllUsers():
-    return db.session.query(t_user).all()
+    return db.session.query(User).all()
 
 def findUserById(id):
-    return db.session.query(t_user).filter(t_user.id == id).one_or_none()
+    return db.session.query(User).filter(User.id == id).one_or_none()
 
 def insertUser(user):
     try :

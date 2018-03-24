@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 
 import dao.user_mapper as um
-from model.user import t_user
+from model.User import User
 
 def findAllUsers():
     return um.findAllUsers()
@@ -10,7 +10,7 @@ def findUserById(id):
     return um.findUserById(id)
 
 def insertUser(name, fullname, password):
-    user = t_user(name=name, fullname=fullname, password=password)
+    user = User(name=name, fullname=fullname, password=password)
     try:
         um.insertUser(user)
     except:
